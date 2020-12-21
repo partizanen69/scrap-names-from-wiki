@@ -43,7 +43,10 @@ const pages = [
         
         return item.slice(0, 1).toUpperCase() + item.slice(1);
       })
-      .filter(item =>  item.split(' ').length === 1)
+      .filter(item => {
+        return item.split(' ').length === 1 
+          && item.indexOf('-') === -1;
+      })
       .forEach(item => uniqueItems[item] = true);
     
     names = names.concat(Object.keys(uniqueItems));
